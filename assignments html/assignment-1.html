@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #1 (Conversion)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <header>
+    <nav class="navbar is-link">
+      <div class="navbar-brand">
+        <a href="../index.html" class="navbar-item is-size-4 px-4">I.T.C Course Website</a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Assignments</a>
+            <div class="navbar-dropdown">
+              <a href="#" class="navbar-item"
+                >Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to
+                Meters)</a
+              ><a href="#" class="navbar-item">Assignment #2 - Income Tax Calculator</a
+              ><a href="#" class="navbar-item"
+                >Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural
+                Numbers</a
+              ><a href="#" class="navbar-item">Assignment #4 - Simple Payroll</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <div class="columns is-centered my-6">
+      <div class="column content is-7">
+        <h1 class="title has-text-info">Assignment #1 Conversion</h1>
+
+        <div class="block box">
+          <h2>Celsius to Fahrenheit</h2>
+          <div class="field has-addons column is-4">
+            <div class="control"><input type="number" class="input is-info" data-input-celsius /></div>
+            <div class="control"><button class="button is-info" data-btn-celsius-to-fahrenheit>Convert</button></div>
+          </div>
+          <div class="block">
+            <h3>Answer</h3>
+            <div class="notification is-primary column is-2" data-output-celcius-to-fahrenheit>No Input Yet ...</div>
+          </div>
+          <h4>JavaScript Code Preview</h4>
+          <pre>
+            <code>                
+const inputCelcius = document.querySelector('[data-input-celsius]')
+const btnConvertCelciusToFahrenheit = document.querySelector('[data-btn-celsius-to-fahrenheit]')
+const outputFahrenheit = document.querySelector('[data-output-celcius-to-fahrenheit]')
+
+const convertCelciusToFarenheit = () => {
+  outputFahrenheit.textContent = `${(parseInt(inputCelcius.value) * 9) / 5 + 32} °F`
+}
+
+btnConvertCelciusToFahrenheit.addEventListener('click', () => {
+  convertCelciusToFarenheit()
+})
+              </code>
+          </pre>
+        </div>
+        <div class="block box">
+          <h2>Fahrenheit to Celsius</h2>
+          <div class="field has-addons column is-4">
+            <div class="control"><input type="number" class="input is-info" data-input-fahrenheit /></div>
+            <div class="control"><button class="button is-info" data-btn-fahrenheit-to-celcius>Convert</button></div>
+          </div>
+          <div class="block">
+            <h3>Answer</h3>
+            <div class="notification is-primary column is-2" data-output-fahrenheit-to-celcius>No Input Yet ...</div>
+          </div>
+          <h4>JavaScript Code Preview</h4>
+          <pre>
+            <code>                
+const inputFahrenheit = document.querySelector('[data-input-fahrenheit]')
+const btnConvertFahrenheitToCelcius = document.querySelector('[data-btn-fahrenheit-to-celcius]')
+const outputCelcius = document.querySelector('[data-output-fahrenheit-to-celcius]')
+
+const convertFahrenheitToCelcius = () => {
+  outputCelcius.textContent = `${(((parseInt(inputFahrenheit.value) - 32) * 5) / 9).toFixed(4)} °C`
+}
+
+btnConvertFahrenheitToCelcius.addEventListener('click', () => {
+  convertFahrenheitToCelcius()
+})
+              </code>
+          </pre>
+        </div>
+        <div class="block box">
+          <h2>Meters to Feet</h2>
+          <div class="field has-addons column is-4">
+            <div class="control"><input type="number" class="input is-info" data-input-meters /></div>
+            <div class="control"><button class="button is-info" data-btn-meters-to-feet>Convert</button></div>
+          </div>
+          <div class="block">
+            <h3>Answer</h3>
+            <div class="notification is-primary column is-2" data-output-feet>No Input Yet ...</div>
+          </div>
+          <h4>JavaScript Code Preview</h4>
+          <pre>
+            <code>                
+const inputMeters = document.querySelector('[data-input-meters]')
+const btnConvertMetersToFeet = document.querySelector('[data-output-feet]')
+const outputFeet = document.querySelector('[data-output-feet]')
+
+const convertMetersToFeet = () => {
+  outputFeet.textContent = `${parseInt(inputMeters.value) * 3.28084} foot`
+}
+
+btnConvertMetersToFeet.addEventListener('click', () => {
+  convertMetersToFeet()
+})
+              </code>
+          </pre>
+        </div>
+        <div class="block box">
+          <h2>Feet to Meters</h2>
+          <div class="field has-addons column is-4">
+            <div class="control"><input type="number" class="input is-info" data-input-feet /></div>
+            <div class="control"><button class="button is-info" data-btn-feet-to-meters>Convert</button></div>
+          </div>
+          <div class="block">
+            <h3>Answer</h3>
+            <div class="notification is-primary column is-2" data-output-meters>No Input Yet ...</div>
+          </div>
+          <h4>JavaScript Code Preview</h4>
+          <pre>
+            <code>                
+const inputFeet = document.querySelector('[data-input-feet]')
+const btnConvertFeetToMeters = document.querySelector('[data-btn-feet-to-meters]')
+const outputMeters = document.querySelector('[data-output-meters]')
+
+const convertFeetToMeters = () => {
+  outputMeters.textContent = `${(parseInt(inputFeet.value) / 3.28084).toFixed(4)} meters`
+}
+
+btnConvertFeetToMeters.addEventListener('click', () => {
+  convertFeetToMeters()
+})
+              </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>I.T.C Course Website</strong> by <a href="https://github.com/vincent-larisma">Vincent Larisma</a>. The
+        source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is
+        licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Celsius to Fahrenheit
+    // (1°C × 9/5) + 32
+
+    const inputCelcius = document.querySelector('[data-input-celsius]')
+    const btnConvertCelciusToFahrenheit = document.querySelector('[data-btn-celsius-to-fahrenheit]')
+    const outputFahrenheit = document.querySelector('[data-output-celcius-to-fahrenheit]')
+
+    const convertCelciusToFarenheit = () => {
+      outputFahrenheit.textContent = `${(parseInt(inputCelcius.value) * 9) / 5 + 32} °F`
+    }
+
+    btnConvertCelciusToFahrenheit.addEventListener('click', () => {
+      convertCelciusToFarenheit()
+    })
+
+    // Fahrenheit to Celsius
+    // (0°F − 32) × 5/9 = -17.78°C
+
+    const inputFahrenheit = document.querySelector('[data-input-fahrenheit]')
+    const btnConvertFahrenheitToCelcius = document.querySelector('[data-btn-fahrenheit-to-celcius]')
+    const outputCelcius = document.querySelector('[data-output-fahrenheit-to-celcius]')
+
+    const convertFahrenheitToCelcius = () => {
+      outputCelcius.textContent = `${(((parseInt(inputFahrenheit.value) - 32) * 5) / 9).toFixed(4)} °C`
+    }
+
+    btnConvertFahrenheitToCelcius.addEventListener('click', () => {
+      convertFahrenheitToCelcius()
+    })
+
+    // Meters to Feet
+    // 1 meter == 3.28084 feet
+    const inputMeters = document.querySelector('[data-input-meters]')
+    const btnConvertMetersToFeet = document.querySelector('[data-btn-meters-to-feet]')
+    const outputFeet = document.querySelector('[data-output-feet]')
+
+    const convertMetersToFeet = () => {
+      outputFeet.textContent = `${parseInt(inputMeters.value) * 3.28084} foot`
+    }
+
+    btnConvertMetersToFeet.addEventListener('click', () => {
+      convertMetersToFeet()
+    })
+
+    // Meters to Feet
+    // 1 meter == 3.28084 feet
+    const inputFeet = document.querySelector('[data-input-feet]')
+    const btnConvertFeetToMeters = document.querySelector('[data-btn-feet-to-meters]')
+    const outputMeters = document.querySelector('[data-output-meters]')
+
+    const convertFeetToMeters = () => {
+      outputMeters.textContent = `${(parseInt(inputFeet.value) / 3.28084).toFixed(4)} meters`
+    }
+
+    btnConvertFeetToMeters.addEventListener('click', () => {
+      convertFeetToMeters()
+    })
+  </script>
+</html>
