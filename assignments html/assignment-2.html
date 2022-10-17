@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #3 (Conversion)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <header>
+    <nav class="navbar is-link">
+      <div class="navbar-brand">
+        <a href="../index.html" class="navbar-item is-size-4 px-4">I.T.C Course Website</a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Assignments</a>
+            <div class="navbar-dropdown">
+              <a href="./assignment-1.html" class="navbar-item"
+                >Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to
+                Meters)</a
+              ><a href="./assignment-2.html" class="navbar-item">Assignment #2 - Income Tax Calculator</a
+              ><a href="./assignment-3.html" class="navbar-item"
+                >Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural
+                Numbers</a
+              ><a href="./assignment-4.html" class="navbar-item">Assignment #4 - Simple Payroll</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column content is-7">
+          <h1>Income Tax Calculator</h1>
+          <div class="field has-addons">
+            <div class="control"><input type="number" class="input" data-input-tax /></div>
+            <div class="control"><button class="button is-info" data-calculate>Calculate</button></div>
+          </div>
+          <div class="column is-5 notification is-success" data-output-tax>PHP: No user input ...</div>
+
+          <h4>JavaScript Code Preview</h4>
+          <pre>
+              <code>                
+const inputTax = document.querySelector('[data-input-tax]')
+const btnCalculateTax = document.querySelector('[data-calculate]')
+const outputTax = document.querySelector('[data-output-tax]')
+
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'PHP',
+})
+
+const calculateTax = () => {
+  const value = inputTax.value
+  if (value <= 250000) {
+    return 0
+  } else if (value > 250000 && value <= 400000) {
+    return (value - 250000) * 0.2
+  } else if (value > 400000 && value <= 800000) {
+    return (value - 400000) * 0.25 + 30000
+  } else if (value > 800000 && value <= 2000000) {
+    return (value - 800000) * 0.3 + 130000
+  } else if (value > 2000000 && value <= 8000000) {
+    return (value - 2000000) * 0.32 + 490000
+  } else {
+    return (value - 8000000) * 0.35 + 2410000
+  }
+}
+
+const showComputation = () => {
+  outputTax.textContent = `PHP: ${formatter.format(calculateTax())}`
+}
+
+btnCalculateTax.addEventListener('click', showComputation)
+                </code>
+            </pre>
+        </div>
+      </div>
+    </section>
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>I.T.C Course Website</strong> by <a href="https://github.com/vincent-larisma">Vincent Larisma</a>. The
+        source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is
+        licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const inputTax = document.querySelector('[data-input-tax]')
+    const btnCalculateTax = document.querySelector('[data-calculate]')
+    const outputTax = document.querySelector('[data-output-tax]')
+
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'PHP',
+    })
+
+    const calculateTax = () => {
+      const value = inputTax.value
+
+      if (value <= 250000) {
+        return 0
+      } else if (value > 250000 && value <= 400000) {
+        return (value - 250000) * 0.2
+      } else if (value > 400000 && value <= 800000) {
+        return (value - 400000) * 0.25 + 30000
+      } else if (value > 800000 && value <= 2000000) {
+        return (value - 800000) * 0.3 + 130000
+      } else if (value > 2000000 && value <= 8000000) {
+        return (value - 2000000) * 0.32 + 490000
+      } else {
+        return (value - 8000000) * 0.35 + 2410000
+      }
+    }
+
+    const showComputation = () => {
+      outputTax.textContent = `PHP: ${formatter.format(calculateTax())}`
+    }
+
+    btnCalculateTax.addEventListener('click', showComputation)
+  </script>
+</html>
