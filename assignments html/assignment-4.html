@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment #3 (Conversion)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <header>
+    <nav class="navbar is-link">
+      <div class="navbar-brand">
+        <a href="../index.html" class="navbar-item is-size-4 px-4">I.T.C Course Website</a>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Assignments</a>
+            <div class="navbar-dropdown">
+              <a href="./assignment-1.html" class="navbar-item"
+                >Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to
+                Meters)</a
+              ><a href="#" class="navbar-item">Assignment #2 - Income Tax Calculator</a
+              ><a href="./assignment-3.html" class="navbar-item"
+                >Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural
+                Numbers</a
+              ><a href="#" class="navbar-item">Assignment #4 - Simple Payroll</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column content is-9">
+          <div class="block"><h1>Simple Pay Roll</h1></div>
+          <div class="field columns">
+            <div class="block control px-1">
+              <!-- TODO: -->
+              <label class="label">Employee Name</label><input type="text" class="input" data-input-name />
+            </div>
+            <div class="control px-1">
+              <label class="label">Days Worked </label><input type="number" class="input" data-input-days-worked />
+            </div>
+            <div class="control px-1">
+              <label class="label">Daily Rate </label><input type="number" class="input" data-input-daily-rate />
+            </div>
+            <div class="control px-1">
+              <label class="label">Deduction Amount</label
+              ><input type="number" class="input" data-input-deduct-amount />
+            </div>
+            <div class="control px-1">
+              <label class="label">Action</label> <button class="button is-success" data-click-add>ADD</button>
+            </div>
+          </div>
+
+          <table class="table table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+              </tr>
+            </thead>
+            <tbody data-table-output>
+              <tr>
+                <td colspan="7" class="has-text-centered">No records Found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>I.T.C Course Website</strong> by <a href="https://github.com/vincent-larisma">Vincent Larisma</a>. The
+        source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is
+        licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
+    </div>
+  </footer>
+
+  <!-- TODO: -->
+  <script>
+    const inputName = document.querySelector('[data-input-name]')
+    const inputDaysWorked = document.querySelector('[data-input-days-worked]')
+    const inputDailyRate = document.querySelector('[data-input-daily-rate]')
+    const inputDeductedAmount = document.querySelector('[data-input-deduct-amount]')
+    const btnAddInput = document.querySelector('[data-click-add]')
+    const tableOutput = document.querySelector('[data-table-output]')
+
+    let tableData = []
+
+    btnAddInput.addEventListener('click', () => {
+      let objectEntry = {
+        name: inputName.value,
+        daysWorked: inputDaysWorked.value,
+        dailyRate: inputDailyRate.value,
+        deductedAmount: inputDeductedAmount.value,
+      }
+
+      tableData.push(objectEntry)
+
+      showList()
+    })
+
+    const showList = () => {
+      tableOutput.innerHTML = createList()
+    }
+
+    const createList = () => {
+      let tbody = `<tbody>`
+      tableData.forEach(({ name, daysWorked, dailyRate, deductedAmount }, index) => {
+        tbody += `
+        <tr>
+            <td>${index}</td>
+            <td>${name}</td>
+            <td>${daysWorked}</td>
+            <td>${dailyRate}</td>
+            <td>${deductedAmount}</td>
+            <td>a</td>
+            <td>a</td>
+        </tr>
+        `
+      })
+
+      return tbody + `</tbody>`
+    }
+  </script>
+</html>
