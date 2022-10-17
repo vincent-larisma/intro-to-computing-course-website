@@ -26,7 +26,7 @@
               ><a href="./assignment-3.html" class="navbar-item"
                 >Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural
                 Numbers</a
-              ><a href="#" class="navbar-item">Assignment #4 - Simple Payroll</a>
+              ><a href="./assignment-4.html" class="navbar-item">Assignment #4 - Simple Payroll</a>
             </div>
           </div>
         </div>
@@ -40,7 +40,6 @@
           <div class="block"><h1>Simple Pay Roll</h1></div>
           <div class="field columns">
             <div class="block control px-1">
-              <!-- TODO: -->
               <label class="label">Employee Name</label><input type="text" class="input" data-input-name />
             </div>
             <div class="control px-1">
@@ -77,6 +76,66 @@
               </tr>
             </tbody>
           </table>
+          <h4>JavaScript Code Preview</h4>
+          <pre>
+              <code>                
+const inputName = document.querySelector('[data-input-name]')
+const inputDaysWorked = document.querySelector('[data-input-days-worked]')
+const inputDailyRate = document.querySelector('[data-input-daily-rate]')
+const inputDeductedAmount = document.querySelector('[data-input-deduct-amount]')
+const btnAddInput = document.querySelector('[data-click-add]')
+const btnDeleteInput = document.querySelector('[data-click-delete]')
+const tableOutput = document.querySelector('[data-table-output]')
+let tableData = []
+btnAddInput.addEventListener('click', () => {
+  let objectEntry = {
+    name: inputName.value,
+    daysWorked: inputDaysWorked.value,
+    dailyRate: inputDailyRate.value,
+    deductedAmount: inputDeductedAmount.value,
+  }
+  if (
+    inputName.value === '' ||
+    inputDaysWorked.value === '' ||
+    inputDailyRate.value === '' ||
+    inputDeductedAmount.value === ''
+  ) {
+    alert('Please enter input')
+  } else {
+    tableData.push(objectEntry)
+    showList()
+  }
+  inputName.value = ''
+  inputDaysWorked.value = ''
+  inputDailyRate.value = ''
+  inputDeductedAmount.value = ''
+})
+btnDeleteInput.addEventListener('click', () => {
+  let index = prompt('Please input line number you want to delete', '')
+  tableData.splice(parseInt(index), 1)
+  showList()
+})
+const showList = () => {
+  tableOutput.innerHTML = createList()
+}
+const createList = () => {
+  let tbody = `<    tbody>`
+  tableData.forEach(({ name, daysWorked, dailyRate, deductedAmount }, index) => {
+    tbody += `
+    <   tr>
+        <   td>${index}<    /td>
+        <   td>${name}< /td>
+        <   td>${daysWorked} days<  /td>
+        <   td>PHP ${dailyRate}<    /td>
+        <   td>PHP ${parseInt(daysWorked) * parseInt(dailyRate)}<   /td>
+        <   td>PHP ${deductedAmount}<   /td>
+        <   td>PHP ${parseInt((parseInt(daysWorked) * parseInt(dailyRate)) - parseInt(deductedAmount)}< /td>
+    </  tr>
+    `
+  })
+  return tbody + `< /tbody>`
+                </code>
+            </pre>
         </div>
       </div>
     </section>
@@ -91,7 +150,6 @@
     </div>
   </footer>
 
-  <!-- TODO: -->
   <script>
     const inputName = document.querySelector('[data-input-name]')
     const inputDaysWorked = document.querySelector('[data-input-days-worked]')
