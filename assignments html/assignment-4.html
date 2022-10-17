@@ -54,7 +54,8 @@
               ><input type="number" class="input" data-input-deduct-amount />
             </div>
             <div class="control px-1">
-              <label class="label">Action</label> <button class="button is-success" data-click-add>ADD</button>
+              <label class="label">Actions</label> <button class="button is-success" data-click-add>ADD</button>
+              <button class="button is-danger" data-click-delete>DELETE</button>
             </div>
           </div>
 
@@ -97,6 +98,7 @@
     const inputDailyRate = document.querySelector('[data-input-daily-rate]')
     const inputDeductedAmount = document.querySelector('[data-input-deduct-amount]')
     const btnAddInput = document.querySelector('[data-click-add]')
+    const btnDeleteInput = document.querySelector('[data-click-delete]')
     const tableOutput = document.querySelector('[data-table-output]')
 
     let tableData = []
@@ -110,6 +112,14 @@
       }
 
       tableData.push(objectEntry)
+
+      showList()
+    })
+
+    btnDeleteInput.addEventListener('click', () => {
+      let index = prompt('Please input line number you want to delete', '')
+
+      tableData.splice(parseInt(index), 1)
 
       showList()
     })
