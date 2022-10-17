@@ -110,10 +110,23 @@
         dailyRate: inputDailyRate.value,
         deductedAmount: inputDeductedAmount.value,
       }
+      if (
+        inputName.value === '' ||
+        inputDaysWorked.value === '' ||
+        inputDailyRate.value === '' ||
+        inputDeductedAmount.value === ''
+      ) {
+        alert('Please enter input')
+      } else {
+        tableData.push(objectEntry)
 
-      tableData.push(objectEntry)
+        showList()
+      }
 
-      showList()
+      inputName.value = ''
+      inputDaysWorked.value = ''
+      inputDailyRate.value = ''
+      inputDeductedAmount.value = ''
     })
 
     btnDeleteInput.addEventListener('click', () => {
@@ -135,11 +148,11 @@
         <tr>
             <td>${index}</td>
             <td>${name}</td>
-            <td>${daysWorked}</td>
-            <td>${dailyRate}</td>
-            <td>${deductedAmount}</td>
-            <td>a</td>
-            <td>a</td>
+            <td>${daysWorked} days</td>
+            <td>PHP ${dailyRate}</td>
+            <td>PHP ${parseInt(daysWorked) * parseInt(dailyRate)}</td>
+            <td>PHP ${deductedAmount}</td>
+            <td>PHP ${parseInt(parseInt(daysWorked) * parseInt(dailyRate)) - parseInt(deductedAmount)}</td>
         </tr>
         `
       })
