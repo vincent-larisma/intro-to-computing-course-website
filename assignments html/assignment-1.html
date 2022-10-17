@@ -19,11 +19,11 @@
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">Assignments</a>
             <div class="navbar-dropdown">
-              <a href="#" class="navbar-item"
+              <a href="./assignment-1.html" class="navbar-item"
                 >Assignment #1 - Conversion (Celsius to Fahrenheit, Fahrenheit to Celsius, Meters to Feet, Feet to
                 Meters)</a
               ><a href="#" class="navbar-item">Assignment #2 - Income Tax Calculator</a
-              ><a href="#" class="navbar-item"
+              ><a href="./assignment-3.html" class="navbar-item"
                 >Assignment #3 - Factorial (While Loop), Sum (Do While Loop) and Average (For Loop) of First N Natural
                 Numbers</a
               ><a href="#" class="navbar-item">Assignment #4 - Simple Payroll</a>
@@ -59,9 +59,7 @@ const convertCelciusToFarenheit = () => {
   outputFahrenheit.textContent = `${(parseInt(inputCelcius.value) * 9) / 5 + 32} °F`
 }
 
-btnConvertCelciusToFahrenheit.addEventListener('click', () => {
-  convertCelciusToFarenheit()
-})
+btnConvertCelciusToFahrenheit.addEventListener('click', convertCelciusToFarenheit)
               </code>
           </pre>
         </div>
@@ -86,9 +84,7 @@ const convertFahrenheitToCelcius = () => {
   outputCelcius.textContent = `${(((parseInt(inputFahrenheit.value) - 32) * 5) / 9).toFixed(4)} °C`
 }
 
-btnConvertFahrenheitToCelcius.addEventListener('click', () => {
-  convertFahrenheitToCelcius()
-})
+btnConvertFahrenheitToCelcius.addEventListener('click', convertFahrenheitToCelcius)
               </code>
           </pre>
         </div>
@@ -113,9 +109,7 @@ const convertMetersToFeet = () => {
   outputFeet.textContent = `${parseInt(inputMeters.value) * 3.28084} foot`
 }
 
-btnConvertMetersToFeet.addEventListener('click', () => {
-  convertMetersToFeet()
-})
+btnConvertMetersToFeet.addEventListener('click', convertMetersToFeet)
               </code>
           </pre>
         </div>
@@ -140,9 +134,7 @@ const convertFeetToMeters = () => {
   outputMeters.textContent = `${(parseInt(inputFeet.value) / 3.28084).toFixed(4)} meters`
 }
 
-btnConvertFeetToMeters.addEventListener('click', () => {
-  convertFeetToMeters()
-})
+btnConvertFeetToMeters.addEventListener('click', convertFeetToMeters)
               </code>
           </pre>
         </div>
@@ -171,9 +163,7 @@ btnConvertFeetToMeters.addEventListener('click', () => {
       outputFahrenheit.textContent = `${(parseInt(inputCelcius.value) * 9) / 5 + 32} °F`
     }
 
-    btnConvertCelciusToFahrenheit.addEventListener('click', () => {
-      convertCelciusToFarenheit()
-    })
+    btnConvertCelciusToFahrenheit.addEventListener('click', convertCelciusToFarenheit)
 
     // Fahrenheit to Celsius
     // (0°F − 32) × 5/9 = -17.78°C
@@ -186,9 +176,7 @@ btnConvertFeetToMeters.addEventListener('click', () => {
       outputCelcius.textContent = `${(((parseInt(inputFahrenheit.value) - 32) * 5) / 9).toFixed(4)} °C`
     }
 
-    btnConvertFahrenheitToCelcius.addEventListener('click', () => {
-      convertFahrenheitToCelcius()
-    })
+    btnConvertFahrenheitToCelcius.addEventListener('click', convertFahrenheitToCelcius)
 
     // Meters to Feet
     // 1 meter == 3.28084 feet
@@ -200,11 +188,9 @@ btnConvertFeetToMeters.addEventListener('click', () => {
       outputFeet.textContent = `${parseInt(inputMeters.value) * 3.28084} foot`
     }
 
-    btnConvertMetersToFeet.addEventListener('click', () => {
-      convertMetersToFeet()
-    })
+    btnConvertMetersToFeet.addEventListener('click', convertMetersToFeet)
 
-    // Meters to Feet
+    // Feet to Meters
     // 1 meter == 3.28084 feet
     const inputFeet = document.querySelector('[data-input-feet]')
     const btnConvertFeetToMeters = document.querySelector('[data-btn-feet-to-meters]')
@@ -213,9 +199,6 @@ btnConvertFeetToMeters.addEventListener('click', () => {
     const convertFeetToMeters = () => {
       outputMeters.textContent = `${(parseInt(inputFeet.value) / 3.28084).toFixed(4)} meters`
     }
-
-    btnConvertFeetToMeters.addEventListener('click', () => {
-      convertFeetToMeters()
-    })
+    btnConvertFeetToMeters.addEventListener('click', convertFeetToMeters)
   </script>
 </html>
